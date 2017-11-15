@@ -1,0 +1,19 @@
+<%@LANGUAGE = VBScript%>
+<html>
+<body>
+
+<%
+    Dim contatore
+    Response.Cookies("contatore").Expires = Date() + 365 
+    contatore = Request.Cookies("contatore")
+    If contatore = "" Then
+        Response.Cookies("contatore") = 1
+        Response.Write("Benvenuto in questa pagina!")
+    Else
+        Response.Cookies("contatore") = contatore + 1
+        Response.Write("Questa è la tua visita # " & contatore)
+    End if
+%>
+
+</body>
+</html>
